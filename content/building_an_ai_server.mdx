@@ -1,0 +1,114 @@
+---
+title: "Building My Own Local LLM Server"
+publishedAt: "2026-02-26"
+updatedAt: "2026-02-27"
+author: "Ammar Faruqui"
+summary: "First steps into getting my own LLM Server"
+---
+
+## The Idea
+
+Seeing a lot of people running their own LLM servers locally always intrigued me. I’ve loved the idea of AI since 2016, mostly because it looked cool in the movies, and that’s partly why I decided to get into software development in the first place.
+
+The main kickstarter for this idea was [PewDiePie’s *de-googling* video](https://www.youtube.com/watch?v=u_Lxkt50xOg) and his [LLM setup video](https://www.youtube.com/watch?v=qw4fDU18RcU). After watching those, I wanted to give it a try myself.
+
+---
+
+## Underpowered, Not Undeterred
+
+I started my morning scrolling Reddit and Twitter, seeing how people had set their LLM servers up. I quickly realized I was lacking the raw power to run a truly strong AI model with OpenClaw.  
+
+But I didn’t give up.
+
+My setup only consists of a **Mac Mini M1 (8GB RAM)** and a **Windows i5 (8GB RAM) laptop from 2019**, which I barely use. There was also the option of spinning up my own VPS, but that’s something I can learn another day.
+
+This was my mission to fulfill *now*.
+
+---
+
+## The Problem
+
+I decided to sacrifice my laptop to the AI supreme leaders.
+
+Why?
+
+I use my Mac Mini for most of my coding, and I already have a small server running on it that uses a good chunk of its compute power. If I were to run an LLM with something heavy like OpenClaw, I wouldn’t be able to code or even use the machine properly.
+
+And my old laptop? It wasn’t really in the question for personal use anymore, it’s gotten slightly slow over time anyway.
+
+So it became the chosen one.
+
+---
+
+## *Greetings, Professor Falken*
+
+After researching what AI model would fit my use case, light coding, crawling, and extraction, I landed on **Qwen2.5:7B**.
+
+I set up **Ollama** with Qwen and **Tailscale**, and it all went super smooth.
+
+Then the mayhem started when I introduced the Claw.
+
+It read:  
+
+> *“Greetings, Professor Falken.”*
+
+A reference from the movie *WarGames*, which dates before my time, so I had to search it up.
+
+Now my local LLM setup was eating up most of my RAM. Installing OpenClaw made my laptop laggy. It started heating up. Fans spinning. Chaos.
+
+---
+
+## Goodbye, Professor Falken
+
+So… I nuked it.
+
+I looked into a lightweight alternative, **PicoClaw**, which my friend [Ahmed Shaikh](https://ahmd.sh/) had suggested. I want to give it another try once I wipe Windows and install a lightweight Linux distro to maximize performance.
+
+---
+
+## Cherry on Top
+
+After the emotional rollercoaster OpenClaw put me through, I really wanted to end the day with *some* kind of success.
+
+So I set up **Chatbox AI** (an Android app) to communicate with my AI server.
+
+Through Tailscale, I was able to use chatbot features from my phone while my laptop sat near the WiFi router, connected via LAN.
+
+It felt amazing to have my own little AI chatbot, running on my own hardware.
+
+---
+
+## Break and Learn
+
+Apart from the chaos, I learned something.
+
+There’s this idea from *WarGames* that the only winning move is sometimes not to play. But in building things, I’ve realized the opposite can also be true, sometimes the “wrong” move leads you exactly where you need to go.
+
+What looked like a failure wasn’t a loss. It was a deviation. And that deviation made the end goal even more convincing.
+
+And technically, I learned a lot:
+
+- **Tuning context size and max tokens** properly prevents crashes.
+- **Streaming responses** are far more reliable than waiting for full output.
+- Keeping models **loaded in memory** dramatically improves speed.
+- Proper **text chunking** sometimes matters more than the model itself.
+- Implementing **request queues** prevents the server from getting overwhelmed.
+- **Caching outputs** saves a lot of repeat work.
+- Tailscale makes hitting a local API from another machine ridiculously easy.
+- The Ollama API follows the **OpenAI-compatible format**, which makes integration simple.
+
+---
+
+## Next Steps
+
+Pretty simple for now:
+
+- Install a lightweight Linux distro on the laptop.
+- Name it **TARS** (from *Interstellar*, of course).
+- Optimize the LLM for my specific needs.
+- Run a few background processes on my AI server instead of relying on AWS or a VPS.
+- Eventually try out a VPS and compare the differences.
+
+More to come.
+
+Stay tuned.
