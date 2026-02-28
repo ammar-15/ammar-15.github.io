@@ -12,9 +12,40 @@ import {
 import { DATA } from "@/data/resume";
 import { HomeIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 
 export default function Navbar() {
   const pathname = usePathname();
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const toastTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const showToast = (message: string) => {
+    setToastMessage(message);
+    if (toastTimeoutRef.current) {
+      clearTimeout(toastTimeoutRef.current);
+    }
+    toastTimeoutRef.current = setTimeout(() => {
+      setToastMessage(null);
+    }, 1800);
+  };
+
+  const copyEmailToClipboard = async (email: string) => {
+    try {
+      await navigator.clipboard.writeText(email);
+      showToast("Copied email to clipboard");
+    } catch {
+      showToast("Could not copy email");
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      if (toastTimeoutRef.current) {
+        clearTimeout(toastTimeoutRef.current);
+      }
+    };
+  }, []);
+
   const navbarItems = DATA.navbar.map((item) => {
     if (item.href === "/blog" && pathname.startsWith("/blog")) {
       return { ...item, href: "/", icon: HomeIcon, label: "Home" };
@@ -35,6 +66,12 @@ export default function Navbar() {
                   href={item.href}
                   target={isExternal ? "_blank" : undefined}
                   rel={isExternal ? "noopener noreferrer" : undefined}
+                  onClick={(event) => {
+                    if (!item.href.startsWith("mailto:")) return;
+                    event.preventDefault();
+                    const email = item.href.replace("mailto:", "") || DATA.contact.email;
+                    void copyEmailToClipboard(email);
+                  }}
                 >
                   <DockIcon className="rounded-3xl cursor-pointer size-full bg-background p-0 text-muted-foreground hover:text-foreground hover:bg-muted backdrop-blur-3xl border border-border transition-colors">
                     <item.icon className="size-full rounded-sm overflow-hidden object-contain" />
@@ -105,6 +142,11 @@ export default function Navbar() {
           </TooltipContent>
         </Tooltip>
       </Dock>
+      {toastMessage ? (
+        <div className="pointer-events-none fixed left-1/2 -translate-x-1/2 bottom-24 z-50 rounded-lg border border-border bg-card/95 px-3 py-2 text-xs text-foreground shadow-lg backdrop-blur-sm">
+          {toastMessage}
+        </div>
+      ) : null}
     </div>
   );
 }
