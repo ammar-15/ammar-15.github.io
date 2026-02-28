@@ -52,7 +52,7 @@ export default function BlogPage({
           </span>
         </h1>
         <p className="text-sm text-muted-foreground mb-8">
-          My thoughts on everything and anything.
+          My thoughts on anything and everything.
         </p>
       </BlurFade>
 
@@ -70,7 +70,7 @@ export default function BlogPage({
                       className="flex items-start gap-x-2 group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                       href={`/blog/${slug}`}
                     >
-                      <span className="text-xs font-mono tabular-nums font-medium mt-[5px]">
+                      <span className="text-xs font-mono tabular-nums font-medium mt-1.25">
                         {String(indexNumber).padStart(2, "0")}.
                       </span>
                       <div className="flex flex-col gap-y-2 flex-1">
