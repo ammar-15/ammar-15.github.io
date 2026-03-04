@@ -17,7 +17,8 @@ export const DATA = {
   location: "St. John's, NL",
   locationLink: "https://www.google.com/maps/place/stjohns",
   description: "Builder Vision. Engineer Brain.",
-  summary: "I like building and experimenting with new ideas. Into startups, shipping fast, and working on things that feel exciting to create. Very proficiently a swiss army knife.",
+  summary:
+    "I like building and experimenting with new ideas. Into startups, shipping fast, and working on things that feel exciting to create. Very proficiently a swiss army knife.",
   avatarUrl: "/me.png",
   skills: [
     { name: "React", icon: ReactLight },
@@ -117,6 +118,72 @@ export const DATA = {
     },
   ],
   projects: [
+    {
+      title: "Meridian",
+      href: "https://meridian-transit.vercel.app/",
+      dates: "Feb 2026 - in development",
+      active: true,
+      description:
+        "Building a transit app that combines live bus tracking and personalized commuting tools into one clean interface tailored for everyday riders.",
+      technologies: [
+        "Flutter",
+        "Supabase",
+        "Riverpod",
+        "Drift (local DB)",
+        "Google Maps API",
+      ],
+      links: [
+        {
+          type: "Source",
+          icon: <Icons.github className="h-4 w-4" />,
+          href: "https://github.com/ammar-15/meridian",
+        },
+      ],
+      image: "/videos/meridian.gif",
+      video: "",
+    },
+    {
+      title: "Local LLM Server (Self-Hosted AI Infra)",
+      href: "https://ammar-15.github.io/blog/building_an_ai_server",
+      dates: "Feb 2026 - in development",
+      active: true,
+      description:
+        "Nuked Windows on my laptop to configure a lightweight no GUI Debian AI server to run local LLMs for extraction, parsing, and coding agents (ZeroClaw). More about this project on my blog!",
+      technologies: [
+        "Linux (Debian minimal)",
+        "Ollama",
+        "Qwen 7B",
+        "ZeroClaw",
+        "Tailscale",
+      ],
+      links: [
+        {
+          type: "Blog Post",
+          icon: <Icons.globe className="h-4 w-4" />,
+          href: "https://ammar-15.github.io/blog/building_an_ai_server",
+        },
+      ],
+      image: "/videos/local-llm.gif",
+      video: "",
+    },
+    {
+      title: "Dosage Calculator API",
+      href: "https://dosage-calculator-web.vercel.app/",
+      dates: "Feb 2026 - in development",
+      active: true,
+      description:
+        "Building an API that extracts and structures drug dosing data from Health Canada DPD product monographs for reliable dose calculations and easier programmatic access. API coming soon.",
+      technologies: ["Python", "Supabase", "OpenAI", "NuExtract", "pdfplumber"],
+      links: [
+        {
+          type: "Source",
+          icon: <Icons.github className="h-4 w-4" />,
+          href: "https://github.com/ammar-15/dosage-calculator-web",
+        },
+      ],
+      image: "/videos/dosage-calculator.gif",
+      video: "",
+    },
     {
       title: "Goalzy (FIFA Stats Tracker)",
       href: "https://github.com/ammar-15/fifa-tracker-frontend",
@@ -228,11 +295,26 @@ export const DATA = {
   ],
   hackathons: [
     {
+      title: "Pragma",
+      dates: "Jan 2026",
+      location: "St. John's, NL",
+      description:
+        "Built a motion tracking web demo inspired by PragmaClin concepts that records short movement sessions and analyzes pose data to compare Parkinson’s motor performance.",
+      image: "/pragma.png",
+      links: [
+        {
+          type: "Source",
+          icon: <Icons.github className="h-4 w-4" />,
+          href: "https://github.com/ammar-15/pragma",
+        },
+      ],
+    },
+    {
       title: "AdhanCast",
       dates: "Mar 2025",
       location: "St. John's, NL",
       description:
-        "Built a lightweight application that plays the Adhan automatically at prayer times based on user location. Focused on reliability, low resource usage, and simple configuration. Designed for personal and small-community use, with customizable notification and playback behavior.", // TODO: tweak if you want more technical depth
+        "Built a lightweight application that plays the Adhan automatically on a Google Home device at prayer times based on user location. Designed for personal and small-community use, with customizable notification and playback behavior.",
       image: "/adhancast.png",
       links: [
         {
