@@ -10,10 +10,20 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 function getSortedPosts() {
   return [...allPosts].sort((a, b) => {
-    if (new Date(a.publishedAt) > new Date(b.publishedAt)) {
-      return -1;
+    const dateDiff =
+      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
+
+    if (dateDiff !== 0) {
+      return dateDiff;
     }
-    return 1;
+
+    const titleDiff = a.title.localeCompare(b.title);
+
+    if (titleDiff !== 0) {
+      return titleDiff;
+    }
+
+    return a._meta.path.localeCompare(b._meta.path);
   });
 }
 

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
 };
 
-const PAGE_SIZE = 5;
+const PAGE_SIZE = 10;
 const BLUR_FADE_DELAY = 0.04;
 
 export default function BlogPage({
@@ -31,8 +31,16 @@ export default function BlogPage({
 
   const posts = allPosts;
   const sortedPosts = [...posts].sort((a, b) => {
-    if (new Date(a.publishedAt) > new Date(b.publishedAt)) return -1;
-    return 1;
+    const dateDiff =
+      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
+
+    if (dateDiff !== 0) return dateDiff;
+
+    const titleDiff = a.title.localeCompare(b.title);
+
+    if (titleDiff !== 0) return titleDiff;
+
+    return a._meta.path.localeCompare(b._meta.path);
   });
 
   const totalPages = Math.ceil(sortedPosts.length / PAGE_SIZE);
@@ -62,7 +70,8 @@ export default function BlogPage({
             <div className="flex flex-col gap-5">
               {paginatedPosts.map((post, id) => {
                 const slug = post._meta.path.replace(/\.mdx$/, "");
-                const indexNumber = (pagination.page - 1) * PAGE_SIZE + id + 1;
+                const indexNumber =
+                  (pagination.page - 1) * pagination.pageSize + id + 1;
 
                 return (
                   <BlurFade delay={BLUR_FADE_DELAY * 3 + id * 0.05} key={slug}>
