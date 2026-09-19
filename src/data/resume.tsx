@@ -509,8 +509,16 @@ export const DATA = {
   ],
   education: [
     {
-      school: "TechNL",
+      school: "HubSpot Academy",
       href: "https://technl.ca/ai-skills-launchpad/",
+      degree: "HubSpot Reporting CRM Certification",
+      logoUrl: "/hubspot.jpg",
+      start: "Aug 2026",
+      end: "Sep 2026",
+    },
+    {
+      school: "TechNL",
+      href: "https://credsverse.com/credentials/ead55b76-cdcb-4ee8-946e-3d707d812169",
       degree: "AI in Data Engineering",
       logoUrl: "/technl.png",
       start: "Feb 2026",
