@@ -14,8 +14,8 @@ export const DATA = {
   name: "Ammar Faruqui",
   initials: "MAF",
   url: "https://ammar-15.github.io/",
-  location: "St. John's, NL",
-  locationLink: "https://www.google.com/maps/place/stjohns",
+  location: "Toronto, ON",
+  locationLink: "https://www.google.com/maps/place/toronto",
   description: "Builder Vision. Engineer Brain.",
   summary:
     "I like building and experimenting with new ideas. Into startups, shipping fast, and working on things that feel exciting to create. Very proficiently a swiss army knife.",
@@ -81,6 +81,18 @@ export const DATA = {
 
   work: [
     {
+      company: "Best Western Premier Carlingview Hotel",
+      href: "https://www.google.com/maps/place/best+western+premier+carlingview/data=!4m2!3m1!1s0x882b3997cb4ec2e3:0x7efa6dcf925ddfed?sa=X&ved=1t:242&ictx=111",
+      badges: [],
+      location: "Toronto, ON",
+      title: "Guest Service Agent",
+      logoUrl: "/bestwesternpremier.png",
+      start: "Sep 2026",
+      end: "Present",
+      description:
+        "Served as first point of contact for 100+ guests daily, handling bookings, payments, requests, and complaints.",
+    },
+    {
       company: "Fiscal.ai",
       href: "https://fiscal.ai",
       badges: [],
@@ -118,6 +130,80 @@ export const DATA = {
     },
   ],
   projects: [
+     {
+      title: "Ontario AMIS Mine Hazard Explorer",
+      href: "https://amis-data.vercel.app/",
+      dates: "Sep 2026",
+      active: true,
+      description:
+        "This project turns Ontario AMIS hazard data into a compact 3D terrain scene, scoring mine hazards and preparing them for Blender rendering.",
+      technologies: [
+        "Blender", 
+        "Codex", 
+        "Python",
+        "3D Geospatial Analysis", 
+        "Ontario AMIS Data"
+      ],
+      links: [
+        {
+          type: "Source",
+          icon: <Icons.github className="h-4 w-4" />,
+          href: "https://github.com/ammar-15/amis",
+        },
+      ],
+      image: "/amis.png",
+      video: "",
+    },
+     {
+      title: "Ontario Hospital Quality Improvement Explorer",
+      href: "https://hospitalopsdata.vercel.app/",
+      dates: "Sep 2026",
+      active: true,
+      description:
+        "A public dashboard for exploring Ontario hospital Quality Improvement Plan data, including planned and reported changes related to emergency department access and patient flow. It is not live operational data or a hospital comparison tool.",
+      technologies: [
+        "NextJS", 
+        "shadcn/ui", 
+        "Claude",
+        "TanStack Table", 
+        "Recharts", 
+        "Pandas", 
+        "NVIDIA Nemotron"
+      ],
+      links: [
+        {
+          type: "Source",
+          icon: <Icons.github className="h-4 w-4" />,
+          href: "https://github.com/ammar-15/hospital_ops_data",
+        },
+      ],
+      image: "/qip.png",
+      video: "",
+    },
+     {
+      title: "LiverScope",
+      href: "https://datathon-silk.vercel.app/",
+      dates: "Feb 2026",
+      active: true,
+      description:
+        "LiverScope is a web app built for the 2026 Memorial University / Canadian Medical Datathon. It explores the BUPA liver disorders dataset and provides an educational liver risk calculator based on routine biomarkers and reported alcohol intake.",
+      technologies: [
+        "TypeScript",
+        "Supabase",
+        "Recharts",
+        "Python",
+        "Scikit-learn"
+      ],
+      links: [
+        {
+          type: "Source",
+          icon: <Icons.github className="h-4 w-4" />,
+          href: "https://github.com/ammar-15/datathon",
+        },
+      ],
+      image: "/liverscope.png",
+      video: "",
+    },
     {
       title: "Meridian",
       href: "https://meridian-transit.vercel.app/",
@@ -169,10 +255,10 @@ export const DATA = {
     {
       title: "Dosage Calculator API",
       href: "https://dosage-calculator-web.vercel.app/",
-      dates: "Feb 2026 - in development",
+      dates: "Feb 2026",
       active: true,
       description:
-        "Building an API that extracts and structures drug dosing data from Health Canada DPD product monographs for reliable dose calculations and easier programmatic access. API coming soon.",
+        "Built an API that extracts and structures drug dosing data from Health Canada DPD product monographs for reliable dose calculations and easier programmatic access. (this project has been paused)",
       technologies: ["Python", "Supabase", "OpenAI", "NuExtract", "pdfplumber"],
       links: [
         {
@@ -187,10 +273,10 @@ export const DATA = {
     {
       title: "Goalzy (FIFA Stats Tracker)",
       href: "https://github.com/ammar-15/fifa-tracker-frontend",
-      dates: "May 2025 - in development",
+      dates: "May 2025",
       active: true,
       description:
-        "Developing a stat-tracking web app that converts FIFA match screenshots into structured data using OCR for post-game analysis. Enables players to compare long-term performance trends against friends and identify strengths and weaknesses.",
+        "Developing a stat-tracking web app that converts FIFA match screenshots into structured data using OCR for post-game analysis. Enables players to compare long-term performance trends against friends and identify strengths and weaknesses. (this project has been paused)",
       technologies: [
         "React",
         "TypeScript",
@@ -294,6 +380,41 @@ export const DATA = {
     },
   ],
   hackathons: [
+    {
+      title: "Toronto Stunt",
+      dates: "Sep 2026",
+      location: "Toronto, ON",
+      description:
+        "A 3D sandbox where you stunt through an endless blocky Toronto, earn money, and upgrade from skates to a flying car.",
+      image: "/torontostunt.png",
+      links: [
+        {
+          type: "Source",
+          icon: <Icons.globe className="h-4 w-4" />,
+          href: "https://toronto-stunt-flow.base44.app/",
+        },
+      ],
+    },
+    {
+      title: "Final POS Game Solver",
+      dates: "July 2026",
+      location: "St. John's, NL",
+      description:
+        "A solver for a match-3 game using Playwright browser automation. Features adjustable parameters, real-time leaderboards, and persistent score tracking.",
+      image: "/pragma.png",
+      links: [
+        {
+          type: "Source",
+          icon: <Icons.github className="h-4 w-4" />,
+          href: "https://finalpos-game.vercel.app/",
+        },
+        {
+          type: "Instagram",
+          icon: <Icons.globe className="h-4 w-4" />,
+          href: "https://www.instagram.com/p/DZVBFp_yuY8/",
+        },
+      ],
+    },
     {
       title: "Pragma",
       dates: "Jan 2026",
